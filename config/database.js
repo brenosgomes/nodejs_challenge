@@ -5,7 +5,7 @@ module.exports = {
     password: "12345678",
     database: "githubDB",
     define: {
-        timestamps: true,
+        timestamps: false,
         underscored: true
     },
 };
