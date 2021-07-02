@@ -1,14 +1,16 @@
 const { Model, DataTypes } = require("sequelize")
 
-class Follow extends Model{
+class Following extends Model{
     static init(sequelize){
         super.init({
-            follower: DataTypes.INTEGER,
             following: DataTypes.INTEGER,
+            user_id: DataTypes.INTEGER,
         }, {
+            tableName: "following",
             sequelize
-        })
+        })       
+        
     }
 }
 
-module.exports = Follow;
+module.exports = Following;

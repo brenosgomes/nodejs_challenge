@@ -2,31 +2,40 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('follow', { 
+    return queryInterface.createTable('repositories', { 
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false,
       },
-      follower: {
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'users', key: 'id' },
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE'
       },
-      following: {
-        type: Sequelize.INTEGER,
+      name: {
+        type: Sequelize.STRING,
         allowNull: false,
-        references: { model: 'users', key: 'id' },
-        onDelete: 'CASCADE',
-        onUpdate: 'CASCADE'
-      }
+      },
+      description: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
+      public: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      slug: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
     });
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('follow');
+    return queryInterface.dropTable('repositories');
   }
 };

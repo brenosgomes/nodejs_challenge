@@ -13,5 +13,5 @@ app.use(cors(/* corsOptions */))
 app.use(routes)
 
 app.listen(PORT, () =>{
-    console.log("Backend executando na porta "+ PORT + "＼(ﾟｰﾟ＼)")
+    console.log("Backend executando na porta "+ PORT)
 })
